@@ -24,10 +24,10 @@ var Config =  {
 	show_map: true,
 	show_pano: false,
 	show_depth: false,
-	default_lat: 37.800218,
-	default_lng: -122.401403,
-	cur_lat: 37.800218,
-	cur_lng: -122.401403,
+	default_lat: 40.75854, 
+	default_lng: -73.985118,
+	cur_lat: 40.75854,
+	cur_lng: -73.985118,
 	
 	init: function() {
 
