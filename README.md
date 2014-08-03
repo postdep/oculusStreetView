@@ -1,9 +1,10 @@
-Oculus-Rift-Three.js-Boilerplate
+Oculus-Street-View
 ==================================
+Oculus rift street view point cloud viewer
 
-A boiler plate for oculus rift and three.js. Virtual reality in your browser. The boilerplate demonstrates basic oculus rift functionality with the popular webgl library library three.js.
 
-The boilerplate uses node.js for simple server. You must have node.js on your computer. [Download](http://nodejs.org/)
+
+The viewr uses node.js for simple server. You must have node.js on your computer. [Download](http://nodejs.org/)
 
 To run, cd into the occulus rift directory and type:
 
