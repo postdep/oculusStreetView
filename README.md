@@ -2,9 +2,9 @@ Oculus-Street-View
 ==================================
 Oculus rift street view point cloud viewer
 
+![alt tag](https://raw.github.com/samsniderheld/oculusStreetView/master/screenshot.png)
 
-
-The viewr uses node.js for simple server. You must have node.js on your computer. [Download](http://nodejs.org/)
+The viewer uses node.js for simple server. You must have node.js on your computer. [Download](http://nodejs.org/)
 
 To run, cd into the occulus rift directory and type:
 

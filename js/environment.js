@@ -24,7 +24,7 @@ var Environment =  {
 	    var img_canvas_context = 0;
 	    var main_rotation = 0;
 	    var pano_loader = new GSVPANO.PanoLoader({
-	        zoom: 1
+	        zoom: 2
 	    });
 	    var depth_loader = new GSVPANO.PanoDepthLoader();
 
