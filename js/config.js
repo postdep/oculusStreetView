@@ -10,64 +10,29 @@ var Config =  {
 	oculus: true,
 	animate: null,
 	bodyAngle: 45,
-	projector: new THREE.Vector3(),
-	raycaster: new THREE.Vector3(),
-	vector: new THREE.Vector3(),
-	root_object: 0,
-	root_helper_object: 0,
-	tracker_map: null,
-	tracker_marker_div: null,
-	svs: new google.maps.StreetViewService(),
-	geo_coder: new google.maps.Geocoder(),
-	point_size: .7,
-	point_cloud_material: null,
-	show_map: true,
-	show_pano: false,
-	show_depth: false,
-	default_lat: 40.75854, 
-	default_lng: -73.985118,
-	cur_lat: 40.75854,
-	cur_lng: -73.985118,
 	
 	init: function() {
 
-	    this.renderer = new THREE.WebGLRenderer({
-	        antialias: true
-	    });
-	    this.renderer.setSize(window.innerWidth, window.innerHeight);
-	    document.body.appendChild(this.renderer.domElement);
-	    this.scene = new THREE.Scene();
-	    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
-	    this.camera.x = 0;
-	    this.camera.y = -30;
-	    this.camera.z = 0;
+	  //basic three.js configs: Here is where you can set up the initial settings for the environment
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+      this.renderer.setClearColor( 0xFFFFFF, 1);
 
-	    var ambient_light = new THREE.AmbientLight(0xcccccc);
-	    this.scene.add(ambient_light);
-	    controls = new THREE.FlyControls(this.camera);
-      	controls.dragToLook = "true";
-	   
-	    
-	    point_cloud_material = new THREE.PointCloudMaterial({
-	        size: Config.point_size,
-	        vertexColors: true,
-	        sizeAttenuation: true,
-	        fog: true
-	    });
+      document.body.appendChild(this.renderer.domElement);
+ 
+      this.camera.position.z = 200;
+      // this.camera.position.y = 50;
 
-	    //set up the oculus rift config
-        this.effect = new THREE.OculusRiftEffect(this.renderer, {worldScale: 100});
-        this.effect.setSize(window.innerWidth,window.innerHeight);
+      var light = new THREE.PointLight(0xffffcc);
+	  light.position.set(0,500,0);
+	  light.intensity=2;
+	  this.scene.add(light);
 
-      	// rotate a THREE.js object based on the orientation of the Oculus Rift
+	  var ambientLight = new THREE.AmbientLight(0x000044);
+  	  this.scene.add(ambientLight);
 
-	    var bridge = new OculusBridge({
-	        "onOrientationUpdate" : function(quatValues) {
-	            bridgeOrientationUpdated(quatValues);
-	        }
-	    });
+      controls = new THREE.FlyControls(this.camera);
+      controls.dragToLook = "true";					
 
-	    bridge.connect();
 	
 	},
 
@@ -76,7 +41,7 @@ var Config =  {
 
 		controls.update(1);
 		this.renderer.render( this.scene, this.camera );
-		this.effect.render(this.scene, this.camera);
+		// Logic.rotate();
 
 	}
 	
