@@ -19,7 +19,7 @@ var Config =  {
 
       document.body.appendChild(this.renderer.domElement);
  
-      this.camera.position.z = 200;
+      this.camera.position.z = 400;
       // this.camera.position.y = 50;
 
       var light = new THREE.PointLight(0xffffcc);
