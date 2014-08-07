@@ -140,9 +140,10 @@ var Environment =  {
 	        geometry.addAttribute('color', new THREE.BufferAttribute(colors, 3));
 	        geometry.computeBoundingBox();
 	        var pointcloud = new THREE.PointCloud(geometry, point_cloud_material);
-	        pointcloud.rotation.y = main_rotation * Math.PI / 180.0;
-	        pointcloud.rotation.z = 180 * Math.PI / 180.0;
+	        pointcloud.rotation.y = 90 * Math.PI / 180.0;
+	        pointcloud.rotation.z = 90 * Math.PI / 180.0;
 	        Config.root_object.add(pointcloud);
+	        Socket.init();
 	        if (Config.old_root_object) {
 	            Config.scene.remove(old_root_object);
 	        }

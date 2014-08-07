@@ -1,7 +1,10 @@
 var app = require('http').createServer(handler)
   , fs = require('fs')
   ,url = require('url')
+  , io = require('socket.io').listen(app)
   ,path = require('path');
+
+
 
 
 app.listen(8080);
@@ -42,6 +45,22 @@ function handler(req, res) {
 
     });
 }
+
+io.sockets.on('connection', function (socket) {
+  
+
+
+
+  socket.on('acceleration', function (data) {
+
+  
+      socket.broadcast.emit('update', data);
+    
+  });
+
+  
+
+});
 
 
 

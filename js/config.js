@@ -31,9 +31,6 @@ var Config =  {
 	
 	init: function() {
 
-	    this.renderer = new THREE.WebGLRenderer({
-	        antialias: true
-	    });
 	    this.renderer.setSize(window.innerWidth, window.innerHeight);
 	    document.body.appendChild(this.renderer.domElement);
 	    this.scene = new THREE.Scene();
@@ -47,6 +44,8 @@ var Config =  {
 	    controls = new THREE.DeviceOrientationControls(this.camera, true);
         controls.connect();
 	   
+	    flycontrols = new THREE.FlyControls(this.camera);
+      	flycontrols.dragToLook = "true";
 	    
 	    point_cloud_material = new THREE.PointCloudMaterial({
 	        size: Config.point_size,
@@ -65,6 +64,7 @@ var Config =  {
 	render: function() {
 
 		controls.update(1);
+		flycontrols.update(1);
 		this.renderer.render( this.scene, this.camera );
 
 	}
