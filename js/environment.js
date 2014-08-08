@@ -18,7 +18,7 @@ var Environment =  {
 	    loader.load( "room.js", function(geometry, materials){
 	      	mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ) );
 	      	mesh.postion={x:0, y:0, z:0};
-	      	mesh.scale={x:1, y:1, z:1};
+	      	mesh.scale={x:50, y:50, z:50};
 	      	mesh.rotation.x = 180 * Math.PI/180;
 	      	mesh.rotation.z = 180 * Math.PI/180;
 	      	Config.scene.add(mesh);

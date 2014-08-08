@@ -18,9 +18,10 @@ var Config =  {
 	    document.body.appendChild(this.renderer.domElement);
 	    this.scene = new THREE.Scene();
 	    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
-	    this.camera.position.x = 2.499999999999999;
-	    this.camera.position.y = 1.6095720923476355;
-	    this.camera.position.z = -3.3228371294452006;
+	    this.camera.position.x = 141.49999999999994;
+	    this.camera.position.y = 10.87914693851305;
+	    this.camera.position.z = -152.98687750712426;
+
 	    this.camera.rotation.x = -1.6899859168778937;
 
 	    var pointLight = new THREE.PointLight(0xffffff, 10, 1000);
