@@ -9,51 +9,30 @@ var Config =  {
 	renderer: new THREE.WebGLRenderer(),
 	oculus: true,
 	animate: null,
-	bodyAngle: 45,
-	projector: new THREE.Vector3(),
-	raycaster: new THREE.Vector3(),
-	vector: new THREE.Vector3(),
-	root_object: 0,
-	root_helper_object: 0,
-	tracker_map: null,
-	tracker_marker_div: null,
-	svs: new google.maps.StreetViewService(),
-	geo_coder: new google.maps.Geocoder(),
-	point_size: .7,
-	point_cloud_material: null,
-	show_map: true,
-	show_pano: false,
-	show_depth: false,
-	default_lat: 40.75854, 
-	default_lng: -73.985118,
-	cur_lat: 40.75854,
-	cur_lng: -73.985118,
 	
 	init: function() {
 
-	    this.renderer = new THREE.WebGLRenderer({
-	        antialias: true
-	    });
+
 	    this.renderer.setSize(window.innerWidth, window.innerHeight);
+	    this.renderer.setClearColor( 0xFFFFFF, 1);
 	    document.body.appendChild(this.renderer.domElement);
 	    this.scene = new THREE.Scene();
 	    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
-	    this.camera.x = 0;
-	    this.camera.y = -30;
-	    this.camera.z = 0;
+	    this.camera.position.x = 2.499999999999999;
+	    this.camera.position.y = 1.6095720923476355;
+	    this.camera.position.z = -3.3228371294452006;
+	    this.camera.rotation.x = -1.6899859168778937;
 
-	    var ambient_light = new THREE.AmbientLight(0xcccccc);
-	    this.scene.add(ambient_light);
-	    controls = new THREE.DeviceOrientationControls(this.camera, true);
-        controls.connect();
+	    var pointLight = new THREE.PointLight(0xffffff, 10, 1000);
+	    pointLight.position.set( 50, 50, -50 );
+	    this.scene.add(pointLight);
+	    // controls = new THREE.DeviceOrientationControls(this.camera, true);
+     //    controls.connect();
+     	controls = new THREE.FlyControls(this.camera);
+     	controls.dragToLook = true;
 	   
 	    
-	    point_cloud_material = new THREE.PointCloudMaterial({
-	        size: Config.point_size,
-	        vertexColors: true,
-	        sizeAttenuation: true,
-	        fog: true
-	    });
+
 
 
 
