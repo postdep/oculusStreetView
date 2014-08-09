@@ -17,11 +17,31 @@ var Environment =  {
 		var loader = new THREE.JSONLoader();
 	    loader.load( "room.js", function(geometry, materials){
 	      	mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ) );
-	      	mesh.postion={x:0, y:0, z:0};
+	      	mesh.position={x:-70, y:-30, z:-30};
 	      	mesh.scale={x:50, y:50, z:50};
-	      	mesh.rotation.x = 180 * Math.PI/180;
-	      	mesh.rotation.z = 180 * Math.PI/180;
+	      	mesh.rotation.x = 90 * Math.PI/180;
+	      	mesh.rotation.y = 180 * Math.PI/180;
+	      	mesh.name = 'room1';
 	      	Config.scene.add(mesh);
+
+	      	mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ) );
+	      	mesh.position={x:-70, y:-30, z:-200};
+	      	mesh.scale={x:50, y:50, z:50};
+	      	mesh.rotation.x = 90 * Math.PI/180;
+	      	mesh.rotation.y = 180 * Math.PI/180;
+	      	mesh.name = 'room2';
+	      	mesh.visible = false;
+	      	Config.scene.add(mesh);
+
+	      	mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ) );
+	      	mesh.position={x:270, y:-30, z:-200};
+	      	mesh.scale={x:50, y:50, z:50};
+	      	mesh.rotation.x = 90 * Math.PI/180;
+	      	mesh.rotation.y = 180 * Math.PI/180;
+	      	mesh.name = 'room3';
+	      	mesh.visible = false;
+	      	Config.scene.add(mesh);
+
 	      	// mesh.material.materials[0].side = 0;
 	    });
 	}

@@ -18,26 +18,36 @@ var Config =  {
 	    document.body.appendChild(this.renderer.domElement);
 	    this.scene = new THREE.Scene();
 	    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
-	    this.camera.position.x = 141.49999999999994;
-	    this.camera.position.y = 10.87914693851305;
-	    this.camera.position.z = -152.98687750712426;
-
-	    this.camera.rotation.x = -1.6899859168778937;
 
 	    var pointLight = new THREE.PointLight(0xffffff, 10, 1000);
 	    pointLight.position.set( 50, 50, -50 );
 	    this.scene.add(pointLight);
-	    // controls = new THREE.DeviceOrientationControls(this.camera, true);
-     //    controls.connect();
-     	controls = new THREE.FlyControls(this.camera);
-     	controls.dragToLook = true;
+	    controls = new THREE.DeviceOrientationControls(this.camera, true);
+        controls.connect();
+     	// controls = new THREE.FlyControls(this.camera);
+     	// controls.dragToLook = true;
 	   
-	    
+	    //hammertime code
+	    var myElement = document.getElementById('overlay');
+
+		// We create a manager object, which is the same as Hammer(), but without the presetted recognizers. 
+		var mc = new Hammer.Manager(myElement);
 
 
+		// Tap recognizer with minimal 2 taps
+		mc.add( new Hammer.Tap({ event: 'doubletap', taps: 2 }) );
+		// Single tap recognizer
+		mc.add( new Hammer.Tap({ event: 'singletap' }) );
 
 
-      	
+		// we want to recognize this simulatenous, so a quadrupletap will be detected even while a tap has been recognized.
+		mc.get('doubletap').recognizeWith('singletap');
+		// we only want to trigger a tap, when we don't have detected a doubletap
+		mc.get('singletap').requireFailure('doubletap');
+
+		mc.on("doubletap", function(ev) {
+		    Logic.move();
+		}); 	
 	
 	},
 
