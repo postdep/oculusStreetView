@@ -47,7 +47,9 @@ var Config =  {
 
 		mc.on("doubletap", function(ev) {
 		    Logic.move();
-		}); 	
+		}); 
+
+		$("#default").click(function(){Logic.move()});	
 	
 	},
 
