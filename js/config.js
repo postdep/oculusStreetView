@@ -7,11 +7,6 @@ var Config =  {
 	camera: new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 2000),
 	scene: new THREE.Scene(),
 	renderer: new THREE.WebGLRenderer(),
-	oculus: true,
-	animate: null,
-	bodyAngle: 45,
-	projector: new THREE.Vector3(),
-	raycaster: new THREE.Vector3(),
 	vector: new THREE.Vector3(),
 	root_object: 0,
 	root_helper_object: 0,
@@ -46,6 +41,9 @@ var Config =  {
 	    this.scene.add(ambient_light);
 	    controls = new THREE.DeviceOrientationControls(this.camera, true);
         controls.connect();
+
+        // controls = new THREE.FlyControls(this.camera);
+        // controls.dragToLook = true;
 	   
 	    
 	    point_cloud_material = new THREE.PointCloudMaterial({
@@ -54,6 +52,38 @@ var Config =  {
 	        sizeAttenuation: true,
 	        fog: true
 	    });
+
+	    this.clock = new THREE.Clock();	
+
+		var loader = new THREE.ColladaLoader();
+		loader.options.convertUpAxis = true;
+		loader.load( 'js/monster.dae', function ( collada ) {
+
+			this.dae = collada.scene;
+
+			this.dae.traverse( function ( child ) {
+
+				if ( child instanceof THREE.SkinnedMesh ) {
+
+					var animation = new THREE.Animation( child, child.geometry.animation );
+					animation.play();
+
+				}
+
+			} );
+
+			this.dae.scale.x = this.dae.scale.y = this.dae.scale.z = .02;
+			this.dae.rotation.y = 30 * Math.PI/180;
+			this.dae.position.x = -200;
+			this.dae.position.z = 100;
+			this.dae.position.y = -5;
+			this.dae.name = "monster";
+			this.dae.updateMatrix();
+
+			Config.scene.add(dae);
+			Config.animate();
+
+		} );
 
 
 
@@ -66,6 +96,22 @@ var Config =  {
 
 		controls.update(1);
 		this.renderer.render( this.scene, this.camera );
+
+	},
+
+	animate: function(){
+
+		requestAnimationFrame( Config.animate );
+
+		var delta = Config.clock.getDelta()/4;
+
+		// animate Collada model
+
+		THREE.AnimationHandler.update( delta );
+
+
+		Config.render();
+		Logic.move();
 
 	}
 	
