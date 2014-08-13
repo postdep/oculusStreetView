@@ -4,7 +4,7 @@ Config.window = window;
 var Config =  {
 	
 	
-	camera: new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 2000),
+	camera: new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 10000),
 	scene: new THREE.Scene(),
 	renderer: new THREE.WebGLRenderer(),
 	oculus: true,
@@ -13,17 +13,44 @@ var Config =  {
 	init: function() {
 
 
-	    this.renderer.setSize(window.innerWidth, window.innerHeight);
-	    this.renderer.setClearColor( 0xFFFFFF, 1);
-	    document.body.appendChild(this.renderer.domElement);
-	    this.scene = new THREE.Scene();
-	    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
+	  this.renderer.setSize(window.innerWidth, window.innerHeight);
+	  this.renderer.setClearColor( 0xFFFFFF, 1);
+	  document.body.appendChild(this.renderer.domElement);
 
-	    var pointLight = new THREE.PointLight(0xffffff, 10, 1000);
-	    pointLight.position.set( 50, 50, -50 );
-	    this.scene.add(pointLight);
-	    controls = new THREE.DeviceOrientationControls(this.camera, true);
-        controls.connect();
+	    //basic three.js configs: Here is where you can set up the initial settings for the environment
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+      this.renderer.setClearColor( 0xF7F7F7, 1);
+
+      document.body.appendChild(this.renderer.domElement);
+ 
+      this.camera.position.z = 1500;
+      this.camera.position.x = 1500;
+      this.camera.position.y = 200;
+      this.camera.rotation.y = 45 * Math.PI/180;
+      this.camera.rotation.z = 10 * Math.PI/180;
+      this.camera.rotation.x = -15 * Math.PI/180;
+
+      var light = new THREE.PointLight(0xffffff, .3,10000);
+	  light.position.set(0,0,500);
+	  this.scene.add(light);
+
+	  // var light2 = new THREE.PointLight(0xffffff, .8,1000);
+	  // light2.position.set(-400,500,200);
+	  // this.scene.add(light2);
+
+	  var ambientLight = new THREE.AmbientLight(0xa5a5a5);
+  	  this.scene.add(ambientLight);
+
+      controls = new THREE.OrbitControls(this.camera);
+
+      $(window).click(function(){
+
+      	Environment.zoom();
+      })
+
+
+	    // controls = new THREE.DeviceOrientationControls(this.camera, true);
+     //    controls.connect();
      	// controls = new THREE.FlyControls(this.camera);
      	// controls.dragToLook = true;
 	   
@@ -58,6 +85,10 @@ var Config =  {
 
 		controls.update(1);
 		this.renderer.render( this.scene, this.camera );
+		if(Environment.canRotate){
+			controls.rotateLeft();
+		}
+		
 
 	}
 	
