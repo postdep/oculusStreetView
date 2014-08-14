@@ -9,7 +9,7 @@ var Logic =  {
 
 		if(!Logic.firstMove){
 
-			TweenLite.to(Config.camera.position,3, {z: -200,  ease:Cubic.easeIn, onComplete: Logic.fadeRoom1});
+			TweenLite.to(Config.camera.position,3, {y: 150,  ease:Cubic.easeIn, onComplete: Logic.fadeRoom1});
 			Logic.firstMove = true;
 			room2 = Config.scene.getObjectByName('room2');
 			room2.visible = true;
@@ -18,8 +18,8 @@ var Logic =  {
 		} else {
 
 			TweenLite.to(Config.camera.position,3, {x: 300,  ease:Cubic.easeIn,onComplete: Logic.fadeRoom2});
-			room3 = Config.scene.getObjectByName('room3');
-			room3.visible = true;
+			room1 = Config.scene.getObjectByName('room1');
+			room1.visible = true;
 		}
 
 	},
@@ -28,6 +28,9 @@ var Logic =  {
 
 		room1 = Config.scene.getObjectByName('room1');
 		room1.visible = false;
+		room1.position.x = 280;
+		room1.position.y = 120;
+		room1.position.z = 0;
 	},
 
 	fadeRoom2: function(){

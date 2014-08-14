@@ -43,6 +43,21 @@
 				width: 100%;
 				height: 100%;
 				z-index: 1000;
+				display: table;
+			}
+			#overlay #intro{
+
+				display: table-cell;
+				text-align: center;
+				vertical-align: middle;
+			}
+
+			#overlay #enter{
+
+				text-align: center;
+				vertical-align: middle;
+				display: none;
+
 			}
 
 			#default{
@@ -62,7 +77,22 @@
     
     <body>
 
-    	<div id='overlay'></div>
+    	<div id='overlay'>
+
+    		<div id="intro">
+
+    			<h1>TANGOHOOD</h1>
+    			<h3>Loading</h3>
+
+    		</div>
+
+    		<div id="enter">
+
+    			<h1>Enter Hood</h1>
+
+    		</div>
+
+    	</div>
     	<div id='default'></div>
 
     	<!-- get everything up and running-->
@@ -71,7 +101,10 @@
 			function animate(){
 		 
 		        Config.render();
-		 
+		        if(Environment.canRotate){
+					controls.rotateLeft();
+				}
+				 
 		        requestAnimationFrame(function(){
 		            animate();
 		        });

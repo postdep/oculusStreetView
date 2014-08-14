@@ -149,6 +149,21 @@ var Environment =  {
 	      	mesh.name = 'room1';
 	      	Config.scene.add(mesh);
 
+	      	mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ) );
+	      	mesh.position={x:0, y:120, z:0};
+	      	mesh.scale={x:40, y:40, z:40};
+	      	mesh.rotation.x = 90 * Math.PI/180;
+	      	mesh.rotation.y = 180 * Math.PI/180;
+	      	mesh.visible = false;
+	      	mesh.name = 'room2';
+	      	Config.scene.add(mesh);
+
+	      	console.log('done');
+	      	$('#intro').fadeOut(function(){
+
+	      		$('#enter').css("display", "table-cell");
+	      	});
+
 	      	
 
 	      	// mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ) );
@@ -179,11 +194,21 @@ var Environment =  {
 		this.canRotate = false;
 		room1 = Config.scene.getObjectByName('room1');
 		room1.visible = true;
-		controls = new THREE.FlyControls(Config.camera);
-		TweenLite.to(Config.camera.position,3, {x:0, y:0, z:50,  ease:Cubic.easeOut});
-		TweenLite.to(Config.camera.rotation,3, {x:0, y:0, z:0,  ease:Cubic.easeOut});
+		
+		TweenLite.to(Config.camera.position,3, {x:0, y:0, z:50,  ease:Cubic.easeOut, onComplete:Environment.addAmbient});
+		// TweenLite.to(Config.camera.rotation,3, {x:0, y:0, z:0,  ease:Cubic.easeOut});
+		
 		
 
+
+	},
+
+	addAmbient: function(){
+
+		controls = new THREE.FlyControls(Config.camera);
+		controls.dragToLook = true;
+		var ambientLight = new THREE.AmbientLight(0xffffff);
+      	Config.scene.add(ambientLight);
 
 	}
  

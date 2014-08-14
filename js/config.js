@@ -26,9 +26,9 @@ var Config =  {
       this.camera.position.z = 1500;
       this.camera.position.x = 1500;
       this.camera.position.y = 200;
-      this.camera.rotation.y = 45 * Math.PI/180;
-      this.camera.rotation.z = 10 * Math.PI/180;
-      this.camera.rotation.x = -15 * Math.PI/180;
+      // this.camera.rotation.y = 45 * Math.PI/180;
+      // this.camera.rotation.z = 10 * Math.PI/180;
+      // this.camera.rotation.x = -70 * Math.PI/180;
 
       var light = new THREE.PointLight(0xffffff, .3,10000);
 	  light.position.set(0,0,500);
@@ -43,10 +43,6 @@ var Config =  {
 
       controls = new THREE.OrbitControls(this.camera);
 
-      $(window).click(function(){
-
-      	Environment.zoom();
-      })
 
 
 	    // controls = new THREE.DeviceOrientationControls(this.camera, true);
@@ -76,7 +72,9 @@ var Config =  {
 		    Logic.move();
 		}); 
 
-		$("#default").click(function(){Logic.move()});	
+		$("#default").click(function(){Logic.move()});
+
+		$("#enter").click(function(){Environment.zoom()});	
 	
 	},
 
@@ -85,9 +83,7 @@ var Config =  {
 
 		controls.update(1);
 		this.renderer.render( this.scene, this.camera );
-		if(Environment.canRotate){
-			controls.rotateLeft();
-		}
+		
 		
 
 	}
