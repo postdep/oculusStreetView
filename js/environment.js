@@ -205,8 +205,8 @@ var Environment =  {
 
 	addAmbient: function(){
 
-		controls = new THREE.FlyControls(Config.camera);
-		controls.dragToLook = true;
+		controls = new THREE.DeviceOrientationControls(Config.camera);
+		controls.connect();
 		var ambientLight = new THREE.AmbientLight(0xffffff);
       	Config.scene.add(ambientLight);
 
