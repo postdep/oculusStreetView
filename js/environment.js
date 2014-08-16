@@ -155,7 +155,6 @@ var Environment =  {
 		cube.position.set(700,450,0);
 		Config.scene.add(cube);
 
-		// this.randomize();
 
 		this.loadModels();		
 		  
@@ -216,8 +215,11 @@ var Environment =  {
 
 	changeControls: function(){
 
-		controls = new THREE.FlyControls(Config.camera);
-		controls.dragToLook = true;
+		// controls = new THREE.FlyControls(Config.camera);
+		// controls.dragToLook = true;
+
+		controls = new THREE.DeviceOrientationControls(Config.camera);
+		controls.connect();
 		
 
 	}
