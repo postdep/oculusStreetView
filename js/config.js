@@ -26,29 +26,21 @@ var Config =  {
       this.camera.position.z = 800;
       this.camera.position.x = 700;
       this.camera.position.y = 450;
-      // this.camera.rotation.y = 45 * Math.PI/180;
-      // this.camera.rotation.z = 10 * Math.PI/180;
-      // this.camera.rotation.x = -70 * Math.PI/180;
+
 
       var light = new THREE.PointLight(0xffffff, .3,10000);
 	  light.position.set(0,0,500);
 	  this.scene.add(light);
 
-	  // var light2 = new THREE.PointLight(0xffffff, .8,1000);
-	  // light2.position.set(-400,500,200);
-	  // this.scene.add(light2);
+
 
 	  var ambientLight = new THREE.AmbientLight(0xa5a5a5);
+	  ambientLight.name = "ambi";
   	  this.scene.add(ambientLight);
 
       controls = new THREE.OrbitControls(this.camera);
 
 
-
-	    // controls = new THREE.DeviceOrientationControls(this.camera, true);
-     //    controls.connect();
-     	// controls = new THREE.FlyControls(this.camera);
-     	// controls.dragToLook = true;
 	   
 	    //hammertime code
 	    var myElement = document.getElementById('overlay');

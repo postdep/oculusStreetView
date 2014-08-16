@@ -106,7 +106,7 @@ var Environment =  {
 		Config.scene.add(cube);
 
 		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
-		cube.position.set(350,150,-170);
+		cube.position.set(350,150,-300);
 		Config.scene.add(cube);
 
 		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 500), new THREE.MeshPhongMaterial());
@@ -170,7 +170,7 @@ var Environment =  {
 
 		var loader = new THREE.JSONLoader();
 	    loader.load( "room.js", function(geometry, materials){
-	      	mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ) );
+	      	mesh = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( materials ) );
 	      	mesh.position={x:0, y:0, z:0};
 	      	mesh.scale={x:40, y:40, z:40};
 	      	mesh.rotation.x = 90 * Math.PI/180;
@@ -179,8 +179,8 @@ var Environment =  {
 	      	mesh.name = 'room1';
 	      	Config.scene.add(mesh);
 
-	      	mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ) );
-	      	mesh.position={x:0, y:120, z:0};
+	      	mesh = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( materials ) );
+	      	mesh.position={x:0, y:150, z:0};
 	      	mesh.scale={x:40, y:40, z:40};
 	      	mesh.rotation.x = 90 * Math.PI/180;
 	      	mesh.rotation.y = 180 * Math.PI/180;
@@ -201,24 +201,24 @@ var Environment =  {
 
 	zoom: function(){
 
+		$("#enter").fadeOut();
 		this.canRotate = false;
 		room1 = Config.scene.getObjectByName('room1');
 		room1.visible = true;
 		
-		TweenLite.to(Config.camera.position,3, {x:0, y:0, z:50,  ease:Cubic.easeOut, onComplete:Environment.addAmbient});
-		// TweenLite.to(Config.camera.rotation,3, {x:0, y:0, z:0,  ease:Cubic.easeOut});
+		TweenLite.to(Config.camera.position,3, {x:0, y:0, z:50,  ease:Cubic.easeOut, onComplete:Environment.changeControls});
 		
-		
+		light = Config.scene.getObjectByName("ambi");
+		TweenLite.to(light.color,7, {r:.3, g:.3, b:.3,  ease:Cubic.easeOut, onComplete:Environment.changeControls});		
 
 
 	},
 
-	addAmbient: function(){
+	changeControls: function(){
 
-		controls = new THREE.DeviceOrientationControls(Config.camera);
-		controls.connect();
-		var ambientLight = new THREE.AmbientLight(0xffffff);
-      	Config.scene.add(ambientLight);
+		controls = new THREE.FlyControls(Config.camera);
+		controls.dragToLook = true;
+		
 
 	}
  

@@ -29,7 +29,7 @@ var Logic =  {
 		room1 = Config.scene.getObjectByName('room1');
 		room1.visible = false;
 		room1.position.x = 280;
-		room1.position.y = 120;
+		room1.position.y = 150;
 		room1.position.z = 0;
 	},
 
