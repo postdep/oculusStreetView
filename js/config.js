@@ -23,9 +23,9 @@ var Config =  {
 
       document.body.appendChild(this.renderer.domElement);
  
-      this.camera.position.z = 1500;
-      this.camera.position.x = 1500;
-      this.camera.position.y = 200;
+      this.camera.position.z = 800;
+      this.camera.position.x = 700;
+      this.camera.position.y = 450;
       // this.camera.rotation.y = 45 * Math.PI/180;
       // this.camera.rotation.z = 10 * Math.PI/180;
       // this.camera.rotation.x = -70 * Math.PI/180;

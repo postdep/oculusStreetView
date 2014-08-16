@@ -7,133 +7,163 @@ var Environment =  {
 
 	init: function(){
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(-700,-300,300);
+		//row 0
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 800), new THREE.MeshPhongMaterial());
+		cube.position.set(-700,-450,700);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(-350,-300,300);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(-350,-450,500);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(0,-450,300);
+		Config.scene.add(cube);
+
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 500), new THREE.MeshPhongMaterial());
+		cube.position.set(350,-450,400);
+		Config.scene.add(cube);
+
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 800), new THREE.MeshPhongMaterial());
+		cube.position.set(700,-450,350);
+		Config.scene.add(cube);
+
+		//row 1
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(-700,-300,500);
+		Config.scene.add(cube);
+
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(-350,-300,390);
+		Config.scene.add(cube);
+
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
 		cube.position.set(0,-300,300);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(350,-300,300);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(350,-300,320);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(700,-300,300);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(700,-300,350);
 		Config.scene.add(cube);
 
 		//row 2
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(-700,-150,150);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(-700,-150,300);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
 		cube.position.set(-350,-150,150);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(0,-150,150);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 600), new THREE.MeshPhongMaterial());
+		cube.position.set(0,-150,310);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
 		cube.position.set(350,-150,150);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(700,-150,150);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 400), new THREE.MeshPhongMaterial());
+		cube.position.set(700,-150,10);
 		Config.scene.add(cube);
 
 		
 		//row 3
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(-700,0,0);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 400), new THREE.MeshPhongMaterial());
+		cube.position.set(-700,0,150);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
 		cube.position.set(-350,0,0);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(0,0,0);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(0,0,220);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
 		cube.position.set(350,0,0);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(700,0,0);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 700), new THREE.MeshPhongMaterial());
+		cube.position.set(700,0,-220);
 		Config.scene.add(cube);
 
 		//row 4
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(-700,150,-150);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(-700,150,-50);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(-350,150,-150);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(-350,150,150);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(0,150,-150);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(0,150,10);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(350,150,-150);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(350,150,-170);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 500), new THREE.MeshPhongMaterial());
 		cube.position.set(700,150,-150);
 		Config.scene.add(cube);
 
 		//row 5
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(-700,300,-300);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 700), new THREE.MeshPhongMaterial());
+		cube.position.set(-700,300,0);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
 		cube.position.set(-350,300,-300);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(0,300,-300);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 500), new THREE.MeshPhongMaterial());
+		cube.position.set(0,300,0);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
 		cube.position.set(350,300,-300);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshLambertMaterial());
-		cube.position.set(700,300,-300);
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 500), new THREE.MeshPhongMaterial());
+		cube.position.set(700,300,0);
 		Config.scene.add(cube);
 
-		this.randomize();
+		//row 6
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 800), new THREE.MeshPhongMaterial());
+		cube.position.set(-700,450,100);
+		Config.scene.add(cube);
 
-	
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(-350,450,-300);
+		Config.scene.add(cube);
+
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(0,450,0);
+		Config.scene.add(cube);
+
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
+		cube.position.set(350,450,-300);
+		Config.scene.add(cube);
+
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 500), new THREE.MeshPhongMaterial());
+		cube.position.set(700,450,0);
+		Config.scene.add(cube);
+
+		// this.randomize();
+
+		this.loadModels();		
 		  
-	},
-
-	randomize: function(){
-
-		for (object in Config.scene.children){
-
-			if(!(Config.scene.children[object]  instanceof THREE.PointLight) && !(Config.scene.children[object] instanceof THREE.AmbientLight)){
-			
-				Config.scene.children[object].position.z = Config.scene.children[object].position.z + Math.floor(Math.random() * 700) - 350;
-				
-			}
-		}
-		this.loadModels();
 	},
 
 	loadModels: function(){
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(280,150,200), new THREE.MeshLambertMaterial());
+		var cube = new THREE.Mesh(new THREE.CubeGeometry(280,150,200), new THREE.MeshPhongMaterial());
 		cube.position.set(0,0,0);
 		Config.scene.add(cube);
 
@@ -164,27 +194,7 @@ var Environment =  {
 	      		$('#enter').css("display", "table-cell");
 	      	});
 
-	      	
 
-	      	// mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ) );
-	      	// mesh.position={x:-70, y:-30, z:-200};
-	      	// mesh.scale={x:50, y:50, z:50};
-	      	// mesh.rotation.x = 90 * Math.PI/180;
-	      	// mesh.rotation.y = 180 * Math.PI/180;
-	      	// mesh.name = 'room2';
-	      	// mesh.visible = false;
-	      	// Config.scene.add(mesh);
-
-	      	// mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ) );
-	      	// mesh.position={x:270, y:-30, z:-200};
-	      	// mesh.scale={x:50, y:50, z:50};
-	      	// mesh.rotation.x = 90 * Math.PI/180;
-	      	// mesh.rotation.y = 180 * Math.PI/180;
-	      	// mesh.name = 'room3';
-	      	// mesh.visible = false;
-	      	// Config.scene.add(mesh);
-
-	      	// mesh.material.materials[0].side = 0;
 	    });
 
 	},
