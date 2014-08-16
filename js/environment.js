@@ -196,6 +196,8 @@ var Environment =  {
 
 	    });
 
+	    this.duplicate();
+
 	},
 
 	zoom: function(){
@@ -222,8 +224,31 @@ var Environment =  {
 		controls.connect();
 		
 
-	}
- 
+	},
+
+	duplicate: function(){
+
+		var loader = new THREE.JSONLoader();
+	    loader.load( "city.js", function(geometry, materials){
+	      	mesh = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( materials ) );
+	      	mesh.position={x:0, y:0, z:3000};
+	      	mesh.scale={x:100, y:100, z:100};
+	      	// mesh.rotation.y = 45 * Math.PI/180;
+	      	mesh.name = 'city';
+	      	Config.scene.add(mesh);
+
+		});
+
+		loader.load( "city2.js", function(geometry, materials){
+	      	mesh = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( materials ) );
+	      	mesh.position={x:3500, y:0, z:3000};
+	      	mesh.scale={x:100, y:100, z:100};
+	      	mesh.rotation.x = 180 * Math.PI/180;
+	      	mesh.name = 'city';
+	      	Config.scene.add(mesh);
+
+		});
+ 	}
 };
 
 

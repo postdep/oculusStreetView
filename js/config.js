@@ -4,7 +4,7 @@ Config.window = window;
 var Config =  {
 	
 	
-	camera: new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 10000),
+	camera: new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 20000),
 	scene: new THREE.Scene(),
 	renderer: new THREE.WebGLRenderer(),
 	oculus: true,
