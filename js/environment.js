@@ -12,14 +12,6 @@ var Environment =  {
 		cube.position.set(-700,-450,700);
 		Config.scene.add(cube);
 
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
-		cube.position.set(-350,-450,500);
-		Config.scene.add(cube);
-
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
-		cube.position.set(0,-450,300);
-		Config.scene.add(cube);
-
 		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 500), new THREE.MeshPhongMaterial());
 		cube.position.set(350,-450,400);
 		Config.scene.add(cube);
@@ -39,10 +31,6 @@ var Environment =  {
 
 		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
 		cube.position.set(0,-300,300);
-		Config.scene.add(cube);
-
-		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
-		cube.position.set(350,-300,320);
 		Config.scene.add(cube);
 
 		var cube = new THREE.Mesh(new THREE.CubeGeometry(350, 150, 300), new THREE.MeshPhongMaterial());
@@ -155,6 +143,17 @@ var Environment =  {
 		cube.position.set(700,450,0);
 		Config.scene.add(cube);
 
+		var loader = new THREE.JSONLoader();
+	    loader.load( "startCity.js", function(geometry, materials){
+	      	mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial( materials ) );
+	      	mesh.position={x:0, y:200, z:-700};
+	      	mesh.scale={x:130, y:100, z:100};
+	      	// mesh.rotation.y = 45 * Math.PI/180;
+	      	mesh.name = 'startCity';
+	      	Config.scene.add(mesh);
+
+		});
+
 
 		this.loadModels();		
 		  
@@ -169,7 +168,7 @@ var Environment =  {
 
 		var loader = new THREE.JSONLoader();
 	    loader.load( "room.js", function(geometry, materials){
-	      	mesh = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( materials ) );
+	      	mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial( materials ) );
 	      	mesh.position={x:0, y:0, z:0};
 	      	mesh.scale={x:40, y:40, z:40};
 	      	mesh.rotation.x = 90 * Math.PI/180;
@@ -178,7 +177,7 @@ var Environment =  {
 	      	mesh.name = 'room1';
 	      	Config.scene.add(mesh);
 
-	      	mesh = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( materials ) );
+	      	mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial( materials ) );
 	      	mesh.position={x:0, y:150, z:0};
 	      	mesh.scale={x:40, y:40, z:40};
 	      	mesh.rotation.x = 90 * Math.PI/180;
@@ -196,7 +195,7 @@ var Environment =  {
 
 	    });
 
-	    this.duplicate();
+	    this.renderCities();
 
 	},
 
@@ -217,20 +216,20 @@ var Environment =  {
 
 	changeControls: function(){
 
-		// controls = new THREE.FlyControls(Config.camera);
-		// controls.dragToLook = true;
+		Config.controls = new THREE.FlyControls(Config.camera);
+		// Config.controls.dragToLook = true;
 
-		controls = new THREE.DeviceOrientationControls(Config.camera);
-		controls.connect();
+		// Config.controls = new THREE.DeviceOrientationControls(Config.camera);
+		// Config.controls.connect();
 		
 
 	},
 
-	duplicate: function(){
+	renderCities: function(){
 
 		var loader = new THREE.JSONLoader();
 	    loader.load( "city.js", function(geometry, materials){
-	      	mesh = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( materials ) );
+	      	mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial( materials ) );
 	      	mesh.position={x:0, y:0, z:3000};
 	      	mesh.scale={x:100, y:100, z:100};
 	      	// mesh.rotation.y = 45 * Math.PI/180;
@@ -240,7 +239,7 @@ var Environment =  {
 		});
 
 		loader.load( "city2.js", function(geometry, materials){
-	      	mesh = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( materials ) );
+	      	mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial( materials ) );
 	      	mesh.position={x:3500, y:0, z:2000};
 	      	mesh.scale={x:100, y:100, z:100};
 	      	mesh.rotation.x = 180 * Math.PI/180;

@@ -29,7 +29,7 @@ var Config =  {
 
 
       var light = new THREE.PointLight(0xffffff, .3,10000);
-	  light.position.set(0,0,500);
+	  light.position.set(0,500,700);
 	  this.scene.add(light);
 
 
@@ -38,7 +38,7 @@ var Config =  {
 	  ambientLight.name = "ambi";
   	  this.scene.add(ambientLight);
 
-      controls = new THREE.OrbitControls(this.camera);
+      Config.controls = new THREE.OrbitControls(this.camera);
 
 
 	   
@@ -73,7 +73,7 @@ var Config =  {
 	
 	render: function() {
 
-		controls.update(1);
+		Config.controls.update(1);
 		this.renderer.render( this.scene, this.camera );
 		
 		
