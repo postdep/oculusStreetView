@@ -216,11 +216,11 @@ var Environment =  {
 
 	changeControls: function(){
 
-		Config.controls = new THREE.FlyControls(Config.camera);
+		// Config.controls = new THREE.FlyControls(Config.camera);
 		// Config.controls.dragToLook = true;
 
-		// Config.controls = new THREE.DeviceOrientationControls(Config.camera);
-		// Config.controls.connect();
+		Config.controls = new THREE.DeviceOrientationControls(Config.camera);
+		Config.controls.connect();
 		
 
 	},
