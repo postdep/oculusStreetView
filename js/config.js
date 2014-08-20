@@ -19,11 +19,12 @@ var Config =  {
 	show_map: true,
 	show_pano: false,
 	show_depth: false,
-	default_lat: 40.75854, 
-	default_lng: -73.985118,
-	cur_lat: 40.75854,
-	cur_lng: -73.985118,
-	
+	default_lat: 40.759679, 
+	default_lng: -73.984313,
+	cur_lat: 40.759679,
+	cur_lng: -73.984313,
+
+
 	init: function() {
 
 	    this.renderer = new THREE.WebGLRenderer({
@@ -39,11 +40,11 @@ var Config =  {
 
 	    var ambient_light = new THREE.AmbientLight(0xcccccc);
 	    this.scene.add(ambient_light);
-	    controls = new THREE.DeviceOrientationControls(this.camera, true);
-        controls.connect();
+	    // controls = new THREE.DeviceOrientationControls(this.camera, true);
+     //    controls.connect();
 
-        // controls = new THREE.FlyControls(this.camera);
-        // controls.dragToLook = true;
+        controls = new THREE.FlyControls(this.camera);
+        controls.dragToLook = true;
 	   
 	    
 	    point_cloud_material = new THREE.PointCloudMaterial({
@@ -74,7 +75,7 @@ var Config =  {
 
 			this.dae.scale.x = this.dae.scale.y = this.dae.scale.z = .02;
 			this.dae.rotation.y = 30 * Math.PI/180;
-			this.dae.position.x = -200;
+			this.dae.position.x = -150;
 			this.dae.position.z = 100;
 			this.dae.position.y = -5;
 			this.dae.name = "monster";
