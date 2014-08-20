@@ -40,11 +40,11 @@ var Config =  {
 
 	    var ambient_light = new THREE.AmbientLight(0xcccccc);
 	    this.scene.add(ambient_light);
-	    // controls = new THREE.DeviceOrientationControls(this.camera, true);
-     //    controls.connect();
+	    controls = new THREE.DeviceOrientationControls(this.camera, true);
+        controls.connect();
 
-        controls = new THREE.FlyControls(this.camera);
-        controls.dragToLook = true;
+        // controls = new THREE.FlyControls(this.camera);
+        // controls.dragToLook = true;
 	   
 	    
 	    point_cloud_material = new THREE.PointCloudMaterial({
