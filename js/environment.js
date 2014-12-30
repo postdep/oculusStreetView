@@ -39,7 +39,7 @@ var Environment =  {
 	        function (data, status) {
 	            if (status === google.maps.StreetViewStatus.OK) {
 	            	Environment.data = data;
-	                pano_loader.load(new google.maps.LatLng(data.location.latLng.k, data.location.latLng.B));
+	                pano_loader.load(new google.maps.LatLng(data.location.latLng.k, data.location.latLng.D));
 	            } else {
 	                console.error("Unable to get starting pano ID ");
 	            }
